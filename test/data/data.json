@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "58a474c4fa5fdf11fe3176e4",
+    "name": "Jonas",
+    "description": "En strålende personlighet",
+    "url": "https://bigfive.world/results?id=58d8d9be82ea7102163cce22"
+  },
+  {
+    "_id": "58a474c4fa5fdf11fe3176e8",
+    "name": "Geir",
+    "description": "En en ikke fullt så strålende personlighet",
+    "url": "https://bigfive.world/results?id=58cdcca9df307b00accadbba"
+  },
+  {
+    "_id": "58a474c4fa5fdf11fe3176e1",
+    "name": "Ylva Marie",
+    "description": "Ikke akkurat lik sin far",
+    "url": "https://bigfive.world/results?id=58ecef5114788800e6d28103"
+  }
+]
