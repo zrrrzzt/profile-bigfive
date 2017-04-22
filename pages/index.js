@@ -12,6 +12,7 @@ import Card from '../components/Card'
 const data = require('../test/data/data.json')
 const profile = require('../test/data/profile.json')
 const getComparison = require('../lib/get-comparison')
+const getData = require('../lib/get-data')
 const loadResults = require('../lib/load-results')
 const generateComparison = require('../lib/generate-comparison')
 const saveData = require('../lib/save-data')
@@ -27,7 +28,7 @@ export default class Index extends React.Component {
 
   static async getInitialProps (ctx) {
     return {
-      data: data,
+      data: [],
       profile: profile,
       name: '',
       id: false,
@@ -39,14 +40,10 @@ export default class Index extends React.Component {
   }
 
   async componentDidMount () {
-    if (this.state.resultId) {
-      this.setState({isLoading: true})
-      const saved = await getComparison(this.state.resultId)
-      const data = await loadResults(saved.comparison)
-      const comparisons = generateComparison(data)
-      const show = this.state.show
-      this.setState({data: data, isLoading: false, comparison: comparisons[show], comparisons: comparisons})
-    }
+    this.setState({isLoading: true})
+    const data = await getData({user: this.state.profile.username})
+    console.log(data)
+    this.setState({data: data, isLoading: false})
   }
 
   handleChange (event) {
