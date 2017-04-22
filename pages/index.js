@@ -9,12 +9,8 @@ import Head from '../components/head'
 import Loading from '../components/loading'
 import Profile from '../components/Profile'
 import Card from '../components/Card'
-const data = require('../test/data/data.json')
 const profile = require('../test/data/profile.json')
-const getComparison = require('../lib/get-comparison')
 const getData = require('../lib/get-data')
-const loadResults = require('../lib/load-results')
-const generateComparison = require('../lib/generate-comparison')
 const saveData = require('../lib/save-data')
 
 export default class Index extends React.Component {
