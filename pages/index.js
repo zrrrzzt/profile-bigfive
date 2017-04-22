@@ -1,7 +1,6 @@
 'use strict'
 
 import React from 'react'
-import Router from 'next/router'
 import Container from 'muicss/lib/react/container'
 import Form from 'muicss/lib/react/form'
 import Input from 'muicss/lib/react/input'
@@ -10,10 +9,8 @@ import Head from '../components/head'
 import Loading from '../components/loading'
 import Profile from '../components/Profile'
 import Card from '../components/Card'
-const { parse } = require('url')
 const data = require('../test/data/data.json')
 const profile = require('../test/data/profile.json')
-const getResult = require('../lib/get-result')
 const getComparison = require('../lib/get-comparison')
 const loadResults = require('../lib/load-results')
 const generateComparison = require('../lib/generate-comparison')
@@ -70,7 +67,8 @@ export default class Index extends React.Component {
       id: this.state.id,
       name: this.state.name,
       description: this.state.description,
-      url: this.state.resultUrl
+      url: this.state.resultUrl,
+      user: this.state.profile.username
     }
     const result = await saveData(data)
     prevData.push(result)
@@ -79,7 +77,7 @@ export default class Index extends React.Component {
 
   handleToggle (event) {
     event.preventDefault()
-    const show = this.state.showForm === true ? false : true
+    const show = !this.state.showForm
     this.setState({showForm: show})
   }
 
