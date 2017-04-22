@@ -38,7 +38,6 @@ export default class Index extends React.Component {
   async componentDidMount () {
     this.setState({isLoading: true})
     const data = await getData({user: this.state.profile.username})
-    console.log(data)
     this.setState({data: data, isLoading: false})
   }
 
@@ -81,7 +80,7 @@ export default class Index extends React.Component {
         <Container fluid>
           <Profile profile={this.state.profile} />
           {
-            this.state.data.map(item => <Card data={item} key={item._id} />)
+            this.state.data.map(item => <Card data={item} key={item.id} />)
           }
           {
             this.state.showForm ? <Form onSubmit={this.handleSubmit}>

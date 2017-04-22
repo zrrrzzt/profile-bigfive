@@ -9,7 +9,7 @@ export default ({ loading }) => (
             <img src='static/images/icons/loading.svg' style={{width: 100}} />
           </p>
           <p>
-            <big>Retrieving data ...</big></p>
+            <big>Working ...</big></p>
           <style>
             {`
               .loading {
