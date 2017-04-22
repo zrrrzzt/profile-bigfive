@@ -93,14 +93,14 @@ export default class Index extends React.Component {
             </Form> : null
           }
           {
-            !this.state.showForm ? <Button size='large' variant='fab' color='primary' className='mui--pull-right' onClick={this.handleToggle}>+</Button> : null
+            !this.state.showForm ? <Button size='large' variant='fab' color='primary' className='mui--pull-right mui--text-headline material-icons' onClick={this.handleToggle}>add</Button> : null
           }
 
           <Loading loading={this.state.isLoading} />
         </Container>
         <footer className='mui-container mui--text-center'>
           <a href='https://github.com/zrrrzzt/bigfive-compare' target='_blank'>bigfive-profile</a><br />
-              Made with ❤ by <a href='https://github.com/zrrrzzt/' target='_blank'>zrrrzzt</a> and <a href='https://github.com/maccyber' target='_blank'>maccyber</a>
+              Made with <span className='material-icons'>favorite</span> by <a href='https://github.com/zrrrzzt/' target='_blank'>zrrrzzt</a> and <a href='https://github.com/maccyber' target='_blank'>maccyber</a>
         </footer>
       </div>
     )
