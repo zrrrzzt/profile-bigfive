@@ -93,7 +93,7 @@ export default class Index extends React.Component {
             </Form> : null
           }
           {
-            !this.state.showForm ? <Button variant='raised' onClick={this.handleToggle}>Add link</Button> : null
+            !this.state.showForm ? <Button size='large' variant='fab' color='primary' className='mui--pull-right' onClick={this.handleToggle}>+</Button> : null
           }
 
           <Loading loading={this.state.isLoading} />
