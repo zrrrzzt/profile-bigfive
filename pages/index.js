@@ -12,7 +12,7 @@ import Loading from '../components/loading'
 import Profile from '../components/Profile'
 import Card from '../components/Card'
 import Test from '../components/Test'
-const cookie = require('node-cookie')
+const nodeCookie = require('cookie')
 const getData = require('../lib/get-data')
 const saveData = require('../lib/save-data')
 const tests = require('../lib/data/tests.json')
@@ -27,7 +27,7 @@ export default class Index extends React.Component {
   }
 
   static async getInitialProps (ctx) {
-    const parsed = cookie.parse(ctx.req)
+    const parsed = nodeCookie.parse(ctx.req.headers.cookie)
     const profile = parsed.profile
 
     if (!profile) {
