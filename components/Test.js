@@ -4,8 +4,7 @@ import Panel from 'muicss/lib/react/panel'
 
 export default (props) => (
   <Panel>
-    <a className='mui--text-headline mui--pull-right material-icons' title='Delete' target='_blank'>delete</a>
-    <a className='mui--text-headline mui--pull-right material-icons' title='Edit' target='_blank'>mode_edit</a>
+    <span className='material-icons mui--pull-right'>{props.data.icon}</span>
     <h1>{props.data.name}</h1>
     <p className='mui--text-headline'>{props.data.description}</p>
     <a href={props.data.url} className='mui--text-headline material-icons' title='Launch' target='_blank'>launch</a>

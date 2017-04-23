@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Big Five Personality test",
+    "description": "Test for the five factor model of personality based on work from IPIP-NEO-PI.",
+    "url": "https://bigfive.world",
+    "icon": "list",
+    "category": "test"
+  },
+  {
+    "name": "Big Five Compare",
+    "description": "Compare your scores to others",
+    "url": "https://compare.bigfive.world",
+    "icon": "people_outline",
+    "category": "comparison"
+  }
+]
