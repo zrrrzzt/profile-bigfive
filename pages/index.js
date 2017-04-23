@@ -12,7 +12,7 @@ import Loading from '../components/loading'
 import Profile from '../components/Profile'
 import Card from '../components/Card'
 import Test from '../components/Test'
-const profile = require('../test/data/profile.json')
+const cookie = require('node-cookie')
 const getData = require('../lib/get-data')
 const saveData = require('../lib/save-data')
 const tests = require('../lib/data/tests.json')
@@ -27,16 +27,31 @@ export default class Index extends React.Component {
   }
 
   static async getInitialProps (ctx) {
-    return {
-      data: [],
-      tests: tests,
-      profile: profile,
-      name: '',
-      id: false,
-      resultUrl: '',
-      description: '',
-      isLoading: false,
-      showForm: false
+    const parsed = cookie.parse(ctx.req)
+    const profile = parsed.profile
+
+    if (!profile) {
+      const url = `https://login.bigfive.world/facebook?success=https://profile.bigfive.world`
+      if (typeof window !== 'undefined') {
+        window.location = url
+      } else {
+        ctx.res.writeHead(302,
+          {Location: url}
+        )
+        ctx.res.end()
+      }
+    } else {
+      return {
+        data: [],
+        tests: tests,
+        profile: profile,
+        name: '',
+        id: false,
+        resultUrl: '',
+        description: '',
+        isLoading: false,
+        showForm: false
+      }
     }
   }
 
