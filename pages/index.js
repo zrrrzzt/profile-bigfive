@@ -28,7 +28,13 @@ export default class Index extends React.Component {
 
   static async getInitialProps (ctx) {
     const parsed = nodeCookie.parse(ctx.req.headers.cookie)
-    const profile = parsed.profile
+    let profile = false
+    let tmp = parsed.profile
+    if (tmp) {
+      tmp = tmp.replace('"{', '{')
+      tmp = tmp.replace('}"', '}')
+      profile = JSON.parse(tmp)
+    }
 
     if (!profile) {
       const url = `https://login.bigfive.world/facebook?success=https://profile.bigfive.world`
