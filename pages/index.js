@@ -15,6 +15,7 @@ import Test from '../components/Test'
 const nodeCookie = require('cookie')
 const getData = require('../lib/get-data')
 const saveData = require('../lib/save-data')
+const deleteData = require('../lib/delete-data')
 const tests = require('../lib/data/tests.json')
 
 export default class Index extends React.Component {
@@ -24,6 +25,7 @@ export default class Index extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleToggle = this.handleToggle.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   static async getInitialProps (ctx) {
@@ -93,6 +95,15 @@ export default class Index extends React.Component {
     this.setState({name: '', description: '', resultUrl: '', id: false, showForm: false, isLoading: false})
   }
 
+  async handleDelete (event) {
+    event.preventDefault()
+    const key = event.target.dataset.key
+    const prevData = this.state.data
+    const result = await deleteData(key)
+    const newData = prevData.filter(item => item.id !== result.id)
+    this.setState({data: newData})
+  }
+
   handleToggle (event) {
     event.preventDefault()
     const show = !this.state.showForm
@@ -111,7 +122,7 @@ export default class Index extends React.Component {
           <Row>
             <Col md='6'>
               {
-                this.state.data.map(item => <Card data={item} key={item.id} />)
+                this.state.data.map(item => <Card data={item} key={item.id} deleteMe={this.handleDelete} />)
               }
               {
                 this.state.showForm ? <Form onSubmit={this.handleSubmit}>
