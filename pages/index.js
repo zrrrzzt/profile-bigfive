@@ -97,9 +97,11 @@ export default class Index extends React.Component {
 
   async handleDelete (event) {
     event.preventDefault()
+    this.setState({isLoading: true})
     const key = event.target.dataset.key
     const prevData = this.state.data
     const result = await deleteData(key)
+    this.setState({isLoading: false})
     const newData = prevData.filter(item => item.id !== result.id)
     this.setState({data: newData})
   }
