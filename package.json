@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/zrrrzzt/profile-bigfive",
   "engines": {
-    "node": ">=7.9.0"
+    "node": ">=7.10.0"
   },
   "now": {
     "alias": "frontpage.profile.bigfive.world",
@@ -54,9 +54,9 @@
   },
   "devDependencies": {
     "ava": "0.19.1",
-    "coveralls": "2.13.0",
+    "coveralls": "2.13.1",
     "nsp": "2.6.3",
-    "nyc": "10.2.0",
+    "nyc": "10.3.2",
     "standard": "10.0.2"
   },
   "dependencies": {
@@ -65,7 +65,7 @@
     "cookie": "0.3.1",
     "jws": "3.1.4",
     "muicss": "0.9.15",
-    "next": "2.1.1",
+    "next": "2.3.1",
     "react": "15.5.4",
     "react-dom": "15.5.4",
     "simple-encryptor": "1.1.0"
