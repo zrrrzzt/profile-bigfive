@@ -36,9 +36,6 @@
   },
   "now": {
     "alias": "frontpage.profile.bigfive.world",
-    "env": {
-      "NODE_ENV": "production"
-    },
     "type": "npm"
   },
   "scripts": {
