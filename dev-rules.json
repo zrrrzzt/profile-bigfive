@@ -1,6 +1,6 @@
 {
   "rules": [
-    { "pathname": "/api/store", "dest": "profiles.save.bigfive.world" },
-    { "dest": "bigfive-compare-egaatvckfj.now.sh" }
+    { "pathname": "/api/store*", "dest": "profiles.save.bigfive.world" },
+    { "dest": "profile-bigfive-ohkiwhulsq.now.sh" }
   ]
 }

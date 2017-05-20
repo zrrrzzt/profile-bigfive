@@ -17,6 +17,8 @@ const getData = require('../lib/get-data')
 const saveData = require('../lib/save-data')
 const deleteData = require('../lib/delete-data')
 const tests = require('../lib/data/tests.json')
+const config = require('../config')
+const logoutUrl = `${config.authUrl}/logout`
 
 export default class Index extends React.Component {
   constructor (props) {
@@ -39,7 +41,7 @@ export default class Index extends React.Component {
     }
 
     if (!profile) {
-      const url = `https://login.bigfive.world/facebook?success=https://profile.bigfive.world`
+      const url = `${config.authUrl}/facebook?success=https://profile.bigfive.world`
       if (typeof window !== 'undefined') {
         window.location = url
       } else {
@@ -117,10 +119,7 @@ export default class Index extends React.Component {
       <div>
         <Head />
         <Container fluid>
-          <div>
-            <a className='mui--text-headline mui--pull-right material-icons' title='Log out' target='_blank'>power_settings_new</a>
-          </div>
-          <Profile profile={this.state.profile} />
+          <Profile profile={this.state.profile} logoutUrl={logoutUrl} />
           <Row>
             <Col md='6'>
               {
