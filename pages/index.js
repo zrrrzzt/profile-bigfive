@@ -31,7 +31,7 @@ export default class Index extends React.Component {
   }
 
   static async getInitialProps (ctx) {
-    const parsed = nodeCookie.parse(ctx.req.headers.cookie)
+    const parsed = ctx.req.headers && ctx.req.headers.cookie ? nodeCookie.parse(ctx.req.headers.cookie) : {}
     let profile = false
     let tmp = parsed.profile
     if (tmp) {
