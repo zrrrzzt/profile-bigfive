@@ -64,7 +64,7 @@
     "muicss": "0.9.30",
     "next": "4.1.4",
     "react": "16.0.0",
-    "react-dom": "16.0.0",
+    "react-dom": "16.2.0",
     "simple-encryptor": "1.1.1"
   }
 }
