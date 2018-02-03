@@ -61,8 +61,8 @@
     "bson-objectid": "1.2.1",
     "cookie": "0.3.1",
     "jws": "3.1.4",
-    "muicss": "0.9.30",
-    "next": "4.2.3",
+    "muicss": "0.9.36",
+    "next": "4.2.4",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "simple-encryptor": "1.1.1"
