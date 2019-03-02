@@ -46,7 +46,7 @@ export default class Index extends React.Component {
         window.location = url
       } else {
         ctx.res.writeHead(302,
-          {Location: url}
+          { Location: url }
         )
         ctx.res.end()
       }
@@ -66,9 +66,9 @@ export default class Index extends React.Component {
   }
 
   async componentDidMount () {
-    this.setState({isLoading: true})
-    const data = await getData({user: this.state.profile.username})
-    this.setState({data: data, isLoading: false})
+    this.setState({ isLoading: true })
+    const data = await getData({ user: this.state.profile.username })
+    this.setState({ data: data, isLoading: false })
   }
 
   handleChange (event) {
@@ -83,7 +83,7 @@ export default class Index extends React.Component {
 
   async handleSubmit (event) {
     event.preventDefault()
-    this.setState({isLoading: true})
+    this.setState({ isLoading: true })
     const prevData = this.state.data
     const data = {
       id: this.state.id,
@@ -94,24 +94,24 @@ export default class Index extends React.Component {
     }
     const result = await saveData(data)
     prevData.push(result)
-    this.setState({name: '', description: '', resultUrl: '', id: false, showForm: false, isLoading: false})
+    this.setState({ name: '', description: '', resultUrl: '', id: false, showForm: false, isLoading: false })
   }
 
   async handleDelete (event) {
     event.preventDefault()
-    this.setState({isLoading: true})
+    this.setState({ isLoading: true })
     const key = event.target.dataset.key
     const prevData = this.state.data
     const result = await deleteData(key)
-    this.setState({isLoading: false})
+    this.setState({ isLoading: false })
     const newData = prevData.filter(item => item.id !== result.id)
-    this.setState({data: newData})
+    this.setState({ data: newData })
   }
 
   handleToggle (event) {
     event.preventDefault()
     const show = !this.state.showForm
-    this.setState({showForm: show})
+    this.setState({ showForm: show })
   }
 
   render () {
